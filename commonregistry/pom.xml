@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <common.version>1.0</common.version>
+    </properties>
+
+    <groupId>com.saltside</groupId>
+    <artifactId>commonregistry</artifactId>
+    <version>${common.version}</version>
+    <packaging>jar</packaging>
+    <name>commonregistry</name>
+
+     <build>
+        <plugins>
+
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-jar-plugin</artifactId>
+               <version>2.2</version>
+               <executions>
+                   <execution>
+                       <goals>
+                           <goal>test-jar</goal>
+                       </goals>
+                   </execution>
+               </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+    
+
+    
+    <dependencies>
+    
+  
+
+
+ <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+
+        <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-xc</artifactId>
+                <version>1.9.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.7</version>
+            <classifier>sources</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.7</version>
+            <classifier>sources</classifier>
+        </dependency>
+
+        <dependency>
+	        <groupId>javax.servlet</groupId>
+	        <artifactId>servlet-api</artifactId>
+	        <version>2.5</version>
+        </dependency>
+
+        <dependency>
+	        <groupId>com.sun.jersey</groupId>
+	        <artifactId>jersey-bundle</artifactId>
+	        <version>1.13</version>
+        </dependency>
+
+        <dependency>
+	        <groupId>com.sun.jersey</groupId>
+	        <artifactId>jersey-server</artifactId>
+	        <version>1.13</version>
+        </dependency>
+
+	<dependency>
+		<groupId>org.mongodb</groupId>
+		<artifactId>mongo-java-driver</artifactId>
+		<version>3.2.0</version>
+	</dependency>
+
+        <dependency>
+	        <groupId>org.json</groupId>
+	        <artifactId>json</artifactId>
+	        <version>20090211</version>
+        </dependency>
+
+
+	<dependency>
+	    <groupId>org.mongodb.morphia</groupId>
+	    <artifactId>morphia</artifactId>
+	    <version>0.111</version>
+	</dependency>
+
+        <dependency>
+	       <groupId>org.slf4j</groupId>
+       	   <artifactId>slf4j-log4j12</artifactId>
+           <version>1.7.8</version>
+        </dependency>
+
+    <dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.11</version>
+    </dependency>
+
+        
+        <dependency>
+	        <groupId>fm.void.jetm</groupId>
+	        <artifactId>jetm</artifactId>
+	        <version>1.2.3</version>
+        </dependency>
+        
+        <dependency>
+	        <groupId>fm.void.jetm</groupId>
+	        <artifactId>jetm</artifactId>
+	        <version>1.2.3</version>
+            <classifier>optional</classifier>
+        </dependency>
+
+        <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <version>1.27</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <version>1.27</version>
+            <classifier>sources</classifier>
+        </dependency>
+        
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.process</artifactId>
+            <version>1.25</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.process</artifactId>
+            <version>1.25</version>
+            <classifier>sources</classifier>
+        </dependency>
+
+       
+   </dependencies>
+</project>
+

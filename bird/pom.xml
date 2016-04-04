@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <bird.version>1.0</bird.version>
+    </properties>
+
+    <groupId>com.saltside</groupId>
+    <artifactId>bird</artifactId>
+    <version>${bird.version}</version>
+    <packaging>war</packaging>
+    <name>bird</name>
+
+    <build>
+        <finalName>bird</finalName>
+        <plugins>
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <profiles>
+         <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>                   
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                             <attachClasses>true</attachClasses>                        
+                             <webappDirectory>${project.build.directory}/bird</webappDirectory>
+                             <warName>bird#v1</warName>                             
+                        </configuration>
+                    </plugin>
+         
+                    <plugin>
+                        <artifactId>jdeb</artifactId>
+                        <groupId>org.vafer</groupId>
+                        <version>0.9</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jdeb</goal>
+                                </goals>
+                                <configuration>
+                            <!--        <controlDir>${project.build.directory}/control/</controlDir>-->
+                                    <deb>${project.build.directory}/bird-v1.deb</deb>
+                                    <dataSet>
+                                        <data>
+                                            <src>${project.build.directory}/bird#v1.war</src>
+                                            <type>file</type>
+                                            <mapper>
+                                              <type>perm</type>
+                                              <prefix>/var/lib/tomcat7/webapps</prefix>
+                                            </mapper>
+                                        </data>
+                                        <data>
+                                            <src>${project.basedir}/regConfig.xml</src>
+                                            <type>file</type>
+                                            <mapper>
+                                              <type>perm</type>
+                                              <prefix>/etc/registry/</prefix>
+					                          <user>tomcat7</user>
+					                          <group>tomcat7</group>
+					                          <filemode>644</filemode>
+                                            </mapper>
+                                        </data>
+                                        <data>
+                                            <src>${project.basedir}/log4j.xml</src>
+                                            <type>file</type>
+                                            <mapper>
+                                              <type>perm</type>
+                                              <prefix>/etc/registry/</prefix>
+					                          <user>tomcat7</user>
+					                          <group>tomcat7</group>
+					                          <filemode>644</filemode>
+                                            </mapper>
+                                        </data>
+                                    </dataSet>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    
+                </plugins>
+                
+            </build>
+        </profile>        
+    </profiles>
+    
+    <dependencies>  
+        <dependency>
+            <groupId>com.saltside</groupId>
+            <artifactId>commonregistry</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.saltside</groupId>
+            <artifactId>commonregistry</artifactId>
+            <version>1.0</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+   
+</project>
+

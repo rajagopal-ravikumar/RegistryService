@@ -1,0 +1,26 @@
+<configuration>
+
+<databaseConnection>
+  		                <host>localhost</host>
+		                <port>27017</port>
+		                <username>siteUserAdmin</username>
+		                <password>password</password>
+                        <name>Bird</name>
+</databaseConnection>
+
+<logLevel>debug</logLevel>
+
+<mongoConnectionOptions>
+
+<connectionsPerHost>10</connectionsPerHost>
+<socketKeepAlive>true</socketKeepAlive>
+<maxWaitTime>300000</maxWaitTime>
+<connectionTimeOut>300000</connectionTimeOut>
+<socketTimeOut>300000</socketTimeOut>
+<maxConnectionIdleTime>300000</maxConnectionIdleTime>
+<threadsAllowedToBlockForConnectionMultiplier>1</threadsAllowedToBlockForConnectionMultiplier>
+<readPreference>PRIMARYPREFERRED</readPreference>
+
+</mongoConnectionOptions>
+
+</configuration>

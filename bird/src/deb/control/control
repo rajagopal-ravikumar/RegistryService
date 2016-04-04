@@ -1,0 +1,8 @@
+Package: Package
+Priority: optional
+Maintainer: rajagopal.ravikumar@gmail.com
+Section: bird-v1
+Architecture: all
+Version: 1.0
+Depends: tomcat7 (>= 7.0), libtomcat7-java(>= 7.0)
+Description: Bird Registry Service

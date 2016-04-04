@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==========================================================================
+     | log4j configuration
+     ! ======================================================================= -->
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+<appender name="SL-LOGFILE" class="org.apache.log4j.RollingFileAppender">
+    <!--<MarkerFilter marker="ALWAYS" onMatch="ACCEPT" onMismatch="DENY"/>-->
+    <param name="Append" value="true"/>
+    <param name="MaxFileSize" value="100MB"/>
+    <param name="MaxBackupIndex" value="3"/>
+    <param name="Threshold" value="debug"/>
+    <param name="File" value="/opt/logs/sl2.log"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%t] %-5p %c{3} %x - %m%n"/>
+    </layout>
+  </appender>
+
+ <!-- ================================================================== -->
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    <param name="Threshold" value="debug"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%t] %-5p %c{3} %x - %m%n"/>
+    </layout>
+  </appender>
+
+
+  <logger name="com.saltside" additivity="false">
+    <level value="debug" />
+    <appender-ref ref="SL-LOGFILE"/>
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+  <logger name="httpclient.wire.content" additivity="false">
+      <level value="warn"/>
+        <appender-ref ref="SL-LOGFILE"/>
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+  <logger name="org.apache.http.headers" additivity="false">
+       <level value="warn"/>
+       <appender-ref ref="SL-LOGFILE"/>
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+  <logger name="javax.ws.rs.core" additivity="false">
+     <level value="warn"/>
+     <appender-ref ref="SL-LOGFILE"/>
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+   <logger name="com.sun.jersey.server.wadl" additivity="false">
+       <level value="warn"/>
+       <appender-ref ref="SL-LOGFILE"/>
+   </logger> 
+ <!-- main, default logger - for code which uses log4j -->
+   <logger name="etm-raw-data" additivity="false">
+       <level value="warn"/>
+       <appender-ref ref="SL-LOGFILE"/>
+   </logger>
+
+  <root>
+    <level value="debug"/>
+    <appender-ref ref="SL-LOGFILE"/>
+    <appender-ref ref="CONSOLE"/> 
+  </root>
+
+</log4j:configuration>
+
+
